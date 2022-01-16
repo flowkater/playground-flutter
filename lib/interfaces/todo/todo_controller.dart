@@ -10,7 +10,13 @@ class TodoController extends GetxController{
   List<TodoInfo> get todoList => _todoList;
   void setTodoList(value) => _todoList.value = value;
 
-  getAllTodos() {
-    setTodoList(_todoFacade.getAllTodoInfos());
+  getAllTodos() async {
+    setTodoList(await _todoFacade.getAllTodoInfos());
+  }
+
+  @override
+  void onInit() {
+    super.onInit();
+    getAllTodos();
   }
 }

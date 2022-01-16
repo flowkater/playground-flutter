@@ -1,6 +1,5 @@
 import 'package:playground_todo/domain/todo/todo.dart';
 
-abstract class TodoService {
+abstract class TodoReader {
   Future<List<Todo>> getAllTodos();
-  Future<Todo> addTodo();
 }

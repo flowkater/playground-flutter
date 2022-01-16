@@ -1,0 +1,21 @@
+targets:
+  $default:
+    builders:
+      artemis:
+        options:
+          schema_mapping:
+            - schema: lib/config/graphql/schema.graphql
+              output: lib/config/graphql/generated/graphqls.dart
+              queries_glob: lib/config/graphql/todo/*.graphql
+
+          scalar_mapping:
+            - graphql_type: Date
+              dart_type: DateTime
+            - graphql_type: Time
+              dart_type: DateTime
+            - graphql_type: DateTime
+              dart_type: DateTime
+            - graphql_type: UUID
+              dart_type: String
+            - graphql_type: ID
+              dart_type: String

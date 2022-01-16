@@ -1,17 +1,21 @@
 import 'package:playground_todo/domain/todo/todo.dart';
+import 'package:playground_todo/domain/todo/todo_reader.dart';
 import 'package:playground_todo/domain/todo/todo_service.dart';
+import 'package:playground_todo/domain/todo/todo_store.dart';
 
 class TodoServiceImpl implements TodoService {
-  @override
-  List<Todo> getAllTodos() {
-    final todos = [
-      Todo(id: 1, name: "name1", description: "description", done: false, userId: 1),
-      Todo(id: 2, name: "name2", description: "description", done: false, userId: 1),
-      Todo(id: 3, name: "name3", description: "description", done: false, userId: 1),
-      Todo(id: 4, name: "name4", description: "description", done: false, userId: 1),
-      Todo(id: 5, name: "name5", description: "description", done: false, userId: 1),
-    ];
+  final TodoReader _todoReader;
+  final TodoStore _todoStore;
 
-    return todos;
+  TodoServiceImpl({required todoReader, required todoStore}) : _todoReader = todoReader, _todoStore = todoStore;
+
+  @override
+  Future<List<Todo>> getAllTodos() async {
+    return await _todoReader.getAllTodos();
+  }
+
+  @override
+  Future<Todo> addTodo() async {
+    return await _todoStore.store();
   }
 }

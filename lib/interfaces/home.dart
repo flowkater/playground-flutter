@@ -5,7 +5,6 @@ import 'package:playground_todo/interfaces/todo/todo_controller.dart';
 
 class Home extends GetView<TodoController> {
   final TodoController _todoController = Get.find();
-
   Home({Key? key}) : super(key: key);
 
   @override

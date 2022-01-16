@@ -3,11 +3,10 @@ import 'package:playground_todo/domain/todo/todo_service.dart';
 
 class TodoFacade {
   final TodoService _todoService;
-
   TodoFacade({required todoService}) : _todoService = todoService;
 
-  List<TodoInfo> getAllTodoInfos() {
-    final todos = _todoService.getAllTodos();
+  Future<List<TodoInfo>> getAllTodoInfos() async {
+    final todos = await _todoService.getAllTodos();
     return todos
         .map((t) => TodoInfo(
             id: t.id,

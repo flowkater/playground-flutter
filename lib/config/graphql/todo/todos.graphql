@@ -1,0 +1,14 @@
+query getTodos($userId: ID!) {
+    todos(userId: $userId) {
+        id
+		name
+		done
+		dueDate
+		description
+		userId
+		user {
+			id
+			name
+		}
+    }
+}

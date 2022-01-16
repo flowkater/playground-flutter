@@ -1,0 +1,56 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Mutation {
+    createTodo(input: CreateTodoInput!): Todo!
+    createUser(input: UserInput!): User!
+    doneTodo(id: ID!): Todo!
+    updateTodo(input: UpdateTodoInput!): Todo!
+}
+
+type Query {
+    todo(id: ID!): Todo!
+    todos(userId: ID!): [Todo!]!
+    user(id: ID!): User!
+}
+
+type Todo {
+    description: String
+    done: Boolean!
+    dueDate: String
+    id: ID!
+    name: String!
+    user: User!
+    userId: ID!
+}
+
+type User {
+    id: ID!
+    name: String!
+    todos: [Todo!]!
+}
+
+input CreateTodoInput {
+    description: String
+    dueDate: String
+    name: String!
+    userId: ID!
+}
+
+input UpdateTodoInput {
+    description: String
+    dueDate: String
+    id: ID!
+    name: String
+}
+
+input UserInput {
+    name: String!
+}
+
+
+scalar Time
