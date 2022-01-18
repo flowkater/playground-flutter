@@ -20,19 +20,15 @@ class TodoFacade {
         .toList();
   }
 
-  Future<List<TodoInfo>> addTodoInfo(AddTodoCommand command) async {
+  Future<TodoInfo> addTodoInfo(AddTodoCommand command) async {
     final todo = await _todoService.addTodo(command.toDomain());
-    print(todo.name);
-    final todos = await _todoService.getAllTodos();
 
-    return todos
-        .map((t) => TodoInfo(
-            id: t.id,
-            name: t.name,
-            description: t.description,
-            dueDate: t.dueDate,
-            done: t.done,
-            userId: t.userId))
-        .toList();
+    return TodoInfo(
+        id: todo.id,
+        name: todo.name,
+        description: todo.description,
+        dueDate: todo.dueDate,
+        done: todo.done,
+        userId: todo.userId);
   }
 }

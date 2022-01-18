@@ -19,10 +19,11 @@ class TodoController extends GetxController {
   }
 
   addTodo() async {
-    setTodoList(await _todoFacade.addTodoInfo(AddTodoCommand(
-        userId: 1,
+    final item = await _todoFacade.addTodoInfo(AddTodoCommand(
+        userId: 2,
         name: "todo ${_todoList.length.toString()}",
-        description: "description")));
+        description: "description"));
+    _todoList.add(item);
   }
 
   @override
