@@ -1,0 +1,10 @@
+mutation createTodo($userId: ID!, $name: String!) {
+    createTodo(input: {userId: $userId, name: $name}) {
+        id
+		name
+		done
+		dueDate
+		description
+		userId
+    }
+}

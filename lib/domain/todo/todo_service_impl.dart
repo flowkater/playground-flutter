@@ -15,7 +15,7 @@ class TodoServiceImpl implements TodoService {
   }
 
   @override
-  Future<Todo> addTodo() async {
-    return await _todoStore.store();
+  Future<Todo> addTodo(Todo todo) async {
+    return await _todoStore.store(todo);
   }
 }

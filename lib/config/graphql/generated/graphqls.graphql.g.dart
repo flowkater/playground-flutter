@@ -57,6 +57,40 @@ Map<String, dynamic> _$GetTodos$QueryToJson(GetTodos$Query instance) =>
       'todos': instance.todos.map((e) => e.toJson()).toList(),
     };
 
+CreateTodo$Mutation$Todo _$CreateTodo$Mutation$TodoFromJson(
+    Map<String, dynamic> json) {
+  return CreateTodo$Mutation$Todo()
+    ..id = json['id'] as String
+    ..name = json['name'] as String
+    ..done = json['done'] as bool
+    ..dueDate = json['dueDate'] as String?
+    ..description = json['description'] as String?
+    ..userId = json['userId'] as String;
+}
+
+Map<String, dynamic> _$CreateTodo$Mutation$TodoToJson(
+        CreateTodo$Mutation$Todo instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'done': instance.done,
+      'dueDate': instance.dueDate,
+      'description': instance.description,
+      'userId': instance.userId,
+    };
+
+CreateTodo$Mutation _$CreateTodo$MutationFromJson(Map<String, dynamic> json) {
+  return CreateTodo$Mutation()
+    ..createTodo = CreateTodo$Mutation$Todo.fromJson(
+        json['createTodo'] as Map<String, dynamic>);
+}
+
+Map<String, dynamic> _$CreateTodo$MutationToJson(
+        CreateTodo$Mutation instance) =>
+    <String, dynamic>{
+      'createTodo': instance.createTodo.toJson(),
+    };
+
 GetTodosArguments _$GetTodosArgumentsFromJson(Map<String, dynamic> json) {
   return GetTodosArguments(
     userId: json['userId'] as String,
@@ -66,4 +100,18 @@ GetTodosArguments _$GetTodosArgumentsFromJson(Map<String, dynamic> json) {
 Map<String, dynamic> _$GetTodosArgumentsToJson(GetTodosArguments instance) =>
     <String, dynamic>{
       'userId': instance.userId,
+    };
+
+CreateTodoArguments _$CreateTodoArgumentsFromJson(Map<String, dynamic> json) {
+  return CreateTodoArguments(
+    userId: json['userId'] as String,
+    name: json['name'] as String,
+  );
+}
+
+Map<String, dynamic> _$CreateTodoArgumentsToJson(
+        CreateTodoArguments instance) =>
+    <String, dynamic>{
+      'userId': instance.userId,
+      'name': instance.name,
     };

@@ -24,7 +24,7 @@ class Home extends GetView<TodoController> {
         ),
       )),
       floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.add), onPressed: _todoController.getAllTodos),
+          child: const Icon(Icons.add), onPressed: _todoController.addTodo),
     );
   }
 }
