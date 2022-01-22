@@ -24,7 +24,6 @@ class TodoRemoteDataSource with RemoteDateSource {
 
   Future<TodoDto> createTodo(CreateTodoArguments arguments) async {
     try {
-      print("createTodo");
       final result = await getGraphqlClient().mutate(MutationOptions(
           document: CreateTodoMutation(
               variables: arguments).document,
@@ -32,9 +31,6 @@ class TodoRemoteDataSource with RemoteDateSource {
             'userId': arguments.userId,
             'name': arguments.name,
           }));
-
-      print(result);
-      print(result.data);
 
       return TodoDto.fromJson(CreateTodo$Mutation.fromJson(result.data!).createTodo.toJson());
 

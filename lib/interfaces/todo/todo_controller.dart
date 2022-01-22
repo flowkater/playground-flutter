@@ -28,7 +28,7 @@ class TodoController extends GetxController {
 
   @override
   void onInit() {
-    super.onInit();
     getAllTodos();
+    super.onInit();
   }
 }
