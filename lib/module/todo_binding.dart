@@ -13,20 +13,20 @@ class TodoBinding implements Bindings {
     Get.lazyPut<TodoController>(
       () {
         return TodoController(
-          todoFacade: TodoFacade(
-            todoService: TodoServiceImpl(
-              todoReader: TodoReaderImpl(
-                todoRepository: TodoRepositoryImpl(
-                  todoRemoteDataSource: TodoRemoteDataSource(),
-                ),
-              ),
-              todoStore: TodoStoreImpl(
-                todoRepository: TodoRepositoryImpl(
-                  todoRemoteDataSource: TodoRemoteDataSource(),
-                ),
-              ),
-            ),
-          ),
+          // todoFacade: TodoFacade(
+          //   todoService: TodoServiceImpl(
+          //     todoReader: TodoReaderImpl(
+          //       todoRepository: TodoRepositoryImpl(
+          //         todoRemoteDataSource: TodoRemoteDataSource(),
+          //       ),
+          //     ),
+          //     todoStore: TodoStoreImpl(
+          //       todoRepository: TodoRepositoryImpl(
+          //         todoRemoteDataSource: TodoRemoteDataSource(),
+          //       ),
+          //     ),
+          //   ),
+          // ),
         );
       },
     );

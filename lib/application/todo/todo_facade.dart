@@ -2,11 +2,12 @@ import 'package:get/get.dart';
 import 'package:playground_todo/domain/todo/todo_command.dart';
 import 'package:playground_todo/domain/todo/todo_info.dart';
 import 'package:playground_todo/domain/todo/todo_service.dart';
+import 'package:playground_todo/domain/todo/todo_service_impl.dart';
 
 class TodoFacade{
-  final TodoService _todoService;
+  final TodoService _todoService = Get.put(TodoServiceImpl(), permanent: true);
 
-  TodoFacade({required todoService}) : _todoService = todoService;
+  // TodoFacade({required todoService}) : _todoService = todoService;
 
   Future<List<TodoInfo>> getAllTodoInfos() async {
     final todos = await _todoService.getAllTodos();

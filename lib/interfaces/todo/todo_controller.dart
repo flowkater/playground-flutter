@@ -4,9 +4,9 @@ import 'package:playground_todo/domain/todo/todo_command.dart';
 import 'package:playground_todo/domain/todo/todo_info.dart';
 
 class TodoController extends GetxController {
-  final TodoFacade _todoFacade;
+  final TodoFacade _todoFacade = Get.put(TodoFacade(), permanent: true);
 
-  TodoController({required todoFacade}) : _todoFacade = todoFacade;
+  // TodoController({required todoFacade}) : _todoFacade = todoFacade;
 
   final _todoList = <TodoInfo>[].obs;
   List<TodoInfo> get todoList => _todoList;

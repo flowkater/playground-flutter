@@ -1,12 +1,13 @@
+import 'package:get/get.dart';
 import 'package:playground_todo/config/graphql/generated/graphqls.dart';
 import 'package:playground_todo/domain/todo/todo.dart';
 import 'package:playground_todo/infrastructure/datasource/remote/todo_remote_datasource.dart';
 import 'package:playground_todo/infrastructure/repository/todo_repository.dart';
 
 class TodoRepositoryImpl implements TodoRepository {
-  final TodoRemoteDataSource _todoRemoteDataSource;
+  final TodoRemoteDataSource _todoRemoteDataSource = Get.put(TodoRemoteDataSource(), permanent: true);
 
-  TodoRepositoryImpl({required todoRemoteDataSource}) : _todoRemoteDataSource = todoRemoteDataSource;
+  // TodoRepositoryImpl({required todoRemoteDataSource}) : _todoRemoteDataSource = todoRemoteDataSource;
 
   @override
   Future<List<Todo>> getAllTodos() async {

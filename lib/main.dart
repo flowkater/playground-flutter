@@ -8,7 +8,7 @@ import 'interfaces/home.dart';
 
 void main() => runApp(GetMaterialApp(
   getPages: [
-    GetPage(name: '/', page: () => Home(), binding: TodoBinding(), transition: Transition.zoom),
+    GetPage(name: '/', page: () => const Home(), binding: TodoBinding(), transition: Transition.zoom),
     GetPage(name: '/first', page: () => const FirstNamePage(), transition: Transition.topLevel),
     GetPage(name: '/second', page: () => const SecondPage(), transition: Transition.cupertino),
     GetPage(name: '/todos/:id', page: () => const TodoShowPage(), transition: Transition.cupertino),
