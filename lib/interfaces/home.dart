@@ -5,15 +5,13 @@ import 'package:playground_todo/interfaces/route_sample/normal/first.dart';
 import 'package:playground_todo/interfaces/todo/todo_controller.dart';
 
 class Home extends GetView<TodoController> {
-  final TodoController _todoController = Get.find();
-
-  Home({Key? key}) : super(key: key);
+  const Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Obx(() => Text("${_todoController.todoList.length}")),
+        title: Obx(() => Text("${controller.todoList.length}")),
       ),
       body: Column(
         children: [
@@ -35,16 +33,16 @@ class Home extends GetView<TodoController> {
             child: (Obx(
               () => ListView.builder(
                 padding: const EdgeInsets.all(8),
-                itemCount: _todoController.todoList.length,
+                itemCount: controller.todoList.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Center(
                     child: GestureDetector(
                       child:
-                          Text('Todo ${_todoController.todoList[index].name}'),
+                          Text('Todo ${controller.todoList[index].name}'),
                       onTap: () {
                         Get.toNamed(
-                          "/todos/${_todoController.todoList[index].id}",
-                          arguments: _todoController.todoList[index],
+                          "/todos/${controller.todoList[index].id}",
+                          arguments: controller.todoList[index],
                         );
                       },
                     ),
@@ -56,7 +54,7 @@ class Home extends GetView<TodoController> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.add), onPressed: _todoController.addTodo),
+          child: const Icon(Icons.add), onPressed: controller.addTodo),
     );
   }
 }

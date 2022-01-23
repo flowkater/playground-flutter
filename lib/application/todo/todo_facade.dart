@@ -1,8 +1,9 @@
+import 'package:get/get.dart';
 import 'package:playground_todo/domain/todo/todo_command.dart';
 import 'package:playground_todo/domain/todo/todo_info.dart';
 import 'package:playground_todo/domain/todo/todo_service.dart';
 
-class TodoFacade {
+class TodoFacade{
   final TodoService _todoService;
 
   TodoFacade({required todoService}) : _todoService = todoService;
