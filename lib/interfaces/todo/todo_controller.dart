@@ -9,13 +9,10 @@ class TodoController extends GetxController {
   TodoController({required todoFacade}) : _todoFacade = todoFacade;
 
   final _todoList = <TodoInfo>[].obs;
-
   List<TodoInfo> get todoList => _todoList;
 
-  void setTodoList(value) => _todoList.value = value;
-
   getAllTodos() async {
-    setTodoList(await _todoFacade.getAllTodoInfos());
+    _todoList(await _todoFacade.getAllTodoInfos());
   }
 
   addTodo() async {
@@ -28,6 +25,10 @@ class TodoController extends GetxController {
 
   @override
   void onInit() {
+    ever(_todoList, (_)=> print("ever 매번 호출"));
+    once(_todoList, (_)=> print("once 한번만 호출"));
+    debounce(_todoList, (_) => print("debounce 마지막에 한번만 호출"), time: const Duration(seconds: 1));
+    interval(_todoList, (_) => print("interval 변경되고 있는 동안에 설정한 초마다 호출" ), time: const Duration(seconds: 1));
     getAllTodos();
     super.onInit();
   }

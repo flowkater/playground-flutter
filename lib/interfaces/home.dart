@@ -38,10 +38,10 @@ class Home extends GetView<TodoController> {
                 itemCount: _todoController.todoList.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Center(
-                    child: TextButton(
+                    child: GestureDetector(
                       child:
                           Text('Todo ${_todoController.todoList[index].name}'),
-                      onPressed: () {
+                      onTap: () {
                         Get.toNamed(
                           "/todos/${_todoController.todoList[index].id}",
                           arguments: _todoController.todoList[index],
